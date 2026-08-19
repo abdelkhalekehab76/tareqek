@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة الطالب | {{ app_name }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/app.css" />
+  <link rel="stylesheet" href="/static/css/dashboard.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">📖</span>
+        <span class="brand-text">{{ app_name }}</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">🏠 الرئيسية</a>
+        <a href="#progress" class="nav-item" data-page="progress">📊 تقدمي</a>
+        <a href="#grades" class="nav-item" data-page="grades">📝 درجاتي</a>
+        <a href="#plan" class="nav-item" data-page="plan">📋 خطة الحفظ</a>
+        <a href="#quran" class="nav-item" data-page="quran">📗 القرآن</a>
+        <a href="#adhkar" class="nav-item" data-page="adhkar">🤲 الأذكار</a>
+        <a href="#tasbeeh" class="nav-item" data-page="tasbeeh">📿 التسبيح</a>
+        <a href="#prayer" class="nav-item" data-page="prayer">🕌 مواقيت الصلاة</a>
+        <a href="#schedule" class="nav-item" data-page="schedule">📅 جدولي</a>
+        <a href="#profile" class="nav-item" data-page="profile">👤 الملف</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn btn-outline btn-sm" onclick="logout()">تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <h2 id="pageTitle">لوحة الطالب</h2>
+        <div class="topbar-user">
+          <span id="notifBadge" class="badge" hidden>0</span>
+          <span id="studentName">الطالب</span>
+        </div>
+      </header>
+
+      <div class="page-content" id="pageContent"></div>
+    </main>
+  </div>
+
+  <!-- Bottom nav for mobile -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="#dashboard" data-page="dashboard">🏠</a>
+    <a href="#quran" data-page="quran">📗</a>
+    <a href="#plan" data-page="plan">📋</a>
+    <a href="#adhkar" data-page="adhkar">🤲</a>
+    <a href="#tasbeeh" data-page="tasbeeh">📿</a>
+  </nav>
+
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/student.js"></script>
+</body>
+</html>

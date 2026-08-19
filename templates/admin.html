@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة الإدارة | {{ app_name }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/app.css" />
+  <link rel="stylesheet" href="/static/css/dashboard.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">📖</span>
+        <span class="brand-text">{{ app_name }}</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">🏠 الرئيسية</a>
+        <a href="#students" class="nav-item" data-page="students">👥 الطلاب</a>
+        <a href="#exams" class="nav-item" data-page="exams">📝 الاختبارات</a>
+        <a href="#progress" class="nav-item" data-page="progress">📊 التقدم</a>
+        <a href="#schedules" class="nav-item" data-page="schedules">📅 الجداول</a>
+        <a href="#events" class="nav-item" data-page="events">🎉 الفعاليات</a>
+        <a href="#announcements" class="nav-item" data-page="announcements">📢 الإعلانات</a>
+        <a href="#notifications" class="nav-item" data-page="notifications">🔔 الإشعارات</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn btn-outline btn-sm" onclick="logout()">تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <h2 id="pageTitle">لوحة التحكم</h2>
+        <div class="topbar-user">
+          <span id="adminName">المدير</span>
+        </div>
+      </header>
+
+      <div class="page-content" id="pageContent">
+        <!-- Dynamic content -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+/* Dashboard layout – RTL */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #0d7377 0%, #095456 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: transform 0.3s;
+}
+
+.sidebar-brand {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand-icon { font-size: 1.5rem; }
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0.75rem;
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  margin-bottom: 0.25rem;
+  transition: background 0.2s;
+  font-size: 0.95rem;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.main-content {
+  flex: 1;
+  margin-right: 260px;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.topbar {
+  background: var(--surface);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topbar h2 { flex: 1; font-size: 1.2rem; }
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.page-content {
+  padding: 1.5rem;
+}
+
+/* Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.stat-card .stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-card .stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.7rem 0.75rem;
+  text-align: right;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: #f0f5f4;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+tr:hover td { background: #f7faf9; }
+
+/* Forms */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  background: #fafcfa;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(13,115,119,0.12);
+}
+
+.form-group textarea { min-height: 80px; resize: vertical; }
+
+/* Buttons */
+.btn-sm { padding: 0.4rem 0.85rem; font-size: 0.85rem; }
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  color: #fff;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.btn-success { background: var(--success); color: #fff; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-accent { background: var(--accent); color: #1a2e2a; }
+.btn-secondary { background: #e8eeec; color: var(--text); }
+
+.actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* Progress bar */
+.progress-bar {
+  height: 10px;
+  background: #e0ebe8;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+.progress-bar .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 5px;
+  transition: width 0.4s;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--danger);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-active { color: var(--success); font-weight: 600; }
+.status-inactive { color: var(--danger); font-weight: 600; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1rem;
+}
+.modal {
+  background: var(--surface);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.modal-header h3 { flex: 1; }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+.modal-body { padding: 1.5rem; }
+
+/* Quran reader */
+.quran-text {
+  font-family: var(--font-quran);
+  font-size: 1.5rem;
+  line-height: 2.4;
+  text-align: center;
+  direction: rtl;
+}
+.ayah {
+  display: inline;
+  padding: 0.15rem 0.25rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.ayah:hover { background: var(--accent-soft); }
+.ayah-num {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  color: var(--primary);
+  margin: 0 0.2rem;
+}
+
+/* Tasbeeh */
+.tasbeeh-counter {
+  text-align: center;
+  padding: 2rem;
+}
+.tasbeeh-count {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 1rem 0;
+}
+.tasbeeh-btn {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 2rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(13,115,119,0.3);
+}
+.tasbeeh-btn:active { transform: scale(0.95); }
+
+/* Adhkar */
+.adhkar-item {
+  background: #f7faf9;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-right: 4px solid var(--primary);
+}
+.adhkar-text {
+  font-family: var(--font-quran);
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-bottom: 0.5rem;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 0.75rem; }
+
+/* Bottom nav mobile */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 0.5rem;
+  justify-content: space-around;
+  z-index: 90;
+}
+.bottom-nav a {
+  font-size: 1.4rem;
+  padding: 0.4rem;
+  color: var(--text-muted);
+}
+.bottom-nav a.active { color: var(--primary); }
+
+/* Prayer times */
+.prayer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+.prayer-card {
+  background: #f0f5f4;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+.prayer-card .name { font-weight: 600; color: var(--primary-dark); }
+.prayer-card .time { font-size: 1.3rem; font-weight: 700; margin-top: 0.25rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(100%);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .main-content { margin-right: 0; }
+  .menu-toggle { display: block; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .bottom-nav { display: flex; }
+  .page-content { padding: 1rem; padding-bottom: 5rem; }
+  .prayer-grid { grid-template-columns: repeat(2, 1fr); }
+}

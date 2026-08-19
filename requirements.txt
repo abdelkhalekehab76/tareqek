@@ -1,0 +1,1 @@
+fastapi uvicorn sqlalchemy pydantic passlib bcrypt python-jose jinja2 python-multipart httpx
